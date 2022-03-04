@@ -3,10 +3,11 @@ const Account = mongoose.model('accounts');
 
 module.exports = app => {
     //routes
-    app.get('/account', async(req, res) => {
+    app.post('/account', async(req, res) => {
         
-        const { rUsername, rPassword } = req.query;
-        
+        console.log(req.body);
+
+        const { rUsername, rPassword } = req.body;
         if(rUsername == null || rPassword == null) 
         {
             res.send("Invalid credentials");
